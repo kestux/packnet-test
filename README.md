@@ -1,5 +1,7 @@
 # packnet-test
 
+## The workflow
+
 Hello, here follows my test task for Packnet. The code will never intend to bee 100% working, 
 will only show the structure of the project I'd done.
 
@@ -7,4 +9,6 @@ It will be symfony project run by CLI command `bin/console server:run` and acces
 
 I'm making all DB fields nullable to make my work easier now. 
 In the real life I would never make such fields like album title, artist, etc nullable.
+
+please remove 5 min from comit times as I was distracted
 

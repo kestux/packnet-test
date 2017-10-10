@@ -29,3 +29,4 @@ so only integration tests can be written for it. But I love tests. I do.
 All of them - unit tests, integration tests, functional tests, acceptance tests.
 And I try to work in TDD (red-green-red) principles.
 
+* At this poit I found out that I forgot to add price field to album entity/table

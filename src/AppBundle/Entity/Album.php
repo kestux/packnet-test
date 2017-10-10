@@ -51,6 +51,13 @@ class Album
     private $year;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="price", type="float", nullable=true)
+     */
+    private $price;
+
+    /**
      * @var ArrayCollection<Gendre>|Gendre[]
      *
      * @ORM\ManyToMany(targetEntity="Gendre", inversedBy="albums")
@@ -192,6 +199,26 @@ class Album
     public function getTracksNo()
     {
         return $this->tracksNo;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     *
+     * @return Album
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
     }
 
     /**

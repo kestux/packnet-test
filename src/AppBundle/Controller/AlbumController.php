@@ -22,11 +22,11 @@ class AlbumController extends Controller
 {
 
     /**
-     * @Route("year/amount", name="packnet-test.appbundle.album.amount_by_year")
+     * @Route("/year/amount", name="packnet-test.appbundle.album.amount_by_year")
      * @Method({"GET"})
      */
     public function getAlbumsPerYear(Request $request, AlbumService $service)
     {
-        return $service->getAlbumMoneyPerYear($request->query->get('filter', array()));
+        print_r($service->getAlbumMoneyPerYear($request->query->get('filter', array())));
     }
 }

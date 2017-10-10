@@ -32,3 +32,18 @@ And I try to work in TDD (red-green-red) principles.
 * At this ponit I found out that I forgot to add price field to album entity/table
 
 * OK, I've added very rough repository, service and controller. All of them the most probably don't work. 
+
+## Set up
+
+Composer and Git should installed for the following steps.
+
+* `git clone git@github.com:kestux/packnet-test.git`
+* `cd packnet-test`
+* `composer install`
+* `bin/console doctrine:migrations:migrate`
+
+_Following stems are just theoretical the most probably they don't work_
+* `bin/console doctrine:fixtures:load`
+* `bin/console server:run`
+* open in browser http://localhost:8000/year/amount
+

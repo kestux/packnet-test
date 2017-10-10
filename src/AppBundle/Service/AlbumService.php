@@ -32,5 +32,11 @@ class AlbumService
         $this->albumRepo = $this->om->getRepository('AppBundle:Album');
     }
 
-
+    public function getAlbumMoneyPerYear(array $filter)
+    {
+        return $this->albumRepo->findMoneyForAlbumsPerYer(
+            isset($filter['year']) ? $filter['year'] : null,
+            isset($filter['amount']) ? $filter['amount'] : null
+        );
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use Symfony\Component\Config\Definition\Exception\Exception;
+
 /**
  * AlbumRepository
  *
@@ -10,4 +12,48 @@ namespace AppBundle\Repository;
  */
 class AlbumRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $byYear
+     * @param $byPrice
+     * @return array
+     */
+    public function findMoneyForAlbumsPerYer($byYear = null, $byPrice = null)
+    {
+        $qb = $this->createQueryBuilder(a)
+            ->select('COUNT(a.id) AS no_of_albums')
+            ->select('SUM(a.price) AS money_spent')
+            ->select('YEAR(a.year) AS year')
+            ->groupBy('YEAR(a.year)');
+
+        if ($byYear = $this->getOrderType($byYear)) {
+            $qb->groupBy('year', $byYear);
+        }
+
+        if ($byPrice = $this->getOrderType($byPrice)) {
+            $qb->groupBy('money_spent', $byPrice);
+        }
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    /**
+     * @param $order
+     * @return null|string
+     * @throws Exception
+     */
+    private function getOrderType($order)
+    {
+        if ($order) {
+            return null;
+        }
+
+        switch ((int)$order) {
+            case -1:
+                return 'DESC';
+            case 1:
+                return 'ASC';
+            default:
+                throw new Exception("Unknown order");
+        }
+    }
 }

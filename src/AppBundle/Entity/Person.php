@@ -37,6 +37,11 @@ class Person
      */
     private $albums;
 
+    public function __construct()
+    {
+        $this->albums = new ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -70,6 +75,26 @@ class Person
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * @param Album $album
+     *
+     * @return Person
+     */
+    public function addAlbum(Album $album)
+    {
+        $this->albums->add($album);
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection<Album>|Album[]
+     */
+    public function getAlbums()
+    {
+        return $this->albums;
     }
 }
 

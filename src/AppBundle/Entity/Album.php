@@ -65,6 +65,52 @@ class Album
      */
     private $persons;
 
+    public function __construct()
+    {
+        $this->gendres = new ArrayCollection();
+        $this->persons = new ArrayCollection();
+    }
+
+    /**
+     * @return ArrayCollection<Gendre>|Gendre[]
+     */
+    public function getGendres()
+    {
+        return $this->gendres;
+    }
+
+    /**
+     * @param Gendre $gendre
+     *
+     * @return Album
+     */
+    public function addGendre(Gendre $gendre)
+    {
+        $this->gendres->add($gendre);
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection<Person>|Person[]
+     */
+    public function getPersons()
+    {
+        return $this->persons;
+    }
+
+    /**
+     * @param Person $person
+     *
+     * @return Album
+     */
+    public function setPersons(Person $person)
+    {
+        $this->persons->add($person);
+
+        return $this;
+    }
+
 
     /**
      * Get id

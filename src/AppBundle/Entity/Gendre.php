@@ -36,6 +36,11 @@ class Gendre
      */
     private $albums;
 
+    public function __construct()
+    {
+        $this->albums = new ArrayCollection();
+    }
+
 
     /**
      * Get id
@@ -69,6 +74,25 @@ class Gendre
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return ArrayCollection<Album>|Album[]
+     */
+    public function getAlbums()
+    {
+        return $this->albums;
+    }
+
+    /**
+     * @param Album $album
+     * @return Gendre
+     */
+    public function addAlbum(Album $album)
+    {
+        $this->albums->add($album);
+
+        return $this;
     }
 }
 

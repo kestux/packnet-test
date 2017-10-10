@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,6 +49,22 @@ class Album
      * @ORM\Column(name="year", type="date", nullable=true)
      */
     private $year;
+
+    /**
+     * @var ArrayCollection<Gendre>|Gendre[]
+     *
+     * @ORM\ManyToMany(targetEntity="Gendre", inversedBy="albums")
+     * @ORM\JoinTable(name="album_gendre")
+     */
+    private $gendres;
+
+    /**
+     * @var ArrayCollection<Person>|Person[]
+     *
+     * @ORM\ManyToMany(targetEntity="Person", inversedBy="albums")
+     * @ORM\JoinTable(name="person_album")
+     */
+    private $persons;
 
 
     /**

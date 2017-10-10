@@ -62,7 +62,6 @@ class Album
      * @var ArrayCollection<Person>|Person[]
      *
      * @ORM\ManyToMany(targetEntity="Person", inversedBy="albums")
-     * @ORM\JoinTable(name="person_album")
      */
     private $persons;
 

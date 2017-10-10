@@ -33,7 +33,6 @@ class Gendre
      * @var ArrayCollection<Album>|Album[]
      *
      * @ORM\ManyToMany(targetEntity="Album", inversedBy="gendres")
-     * @ORM\JoinTable(name="album_gendre")
      */
     private $albums;
 
